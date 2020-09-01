@@ -1,37 +1,37 @@
 # Data Definition Language - DDL
-CREATE SCHEMA IF NOT EXISTS pos_puc_mod_1_aulas charset='latin1';
+CREATE SCHEMA IF NOT EXISTS pos_puc_mod_1_aulas CHARSET='latin1';
 
-use pos_puc_mod_1_aulas; 
+USE pos_puc_mod_1_aulas; 
 
-drop table if exists Dependente;
-drop table if exists Empregado;
+DROP TABLE IF EXISTS Dependente;
+DROP TABLE IF EXISTS Empregado;
 
-Create table Empregado(
-	MatEmp smallint not null,
-    NomEmp char(30) not null,
-    EndEmp char(80) null,
-    CidEmp char(20) null,
-    Bairro char(20) null,
-    Cargo char(20) null,
-    Sexo char(2) null,
-    Comissao float null,
-    Salario float null,
-    SalarioBruto float null,
-    CodDepto smallint,
-    CodSupervisor smallint,
-    Constraint PK_EMP primary Key(MatEmp)
+CREATE TABLE Empregado(
+    MatEmp SMALLINT NOT NULL,
+    NomEmp CHAR(30) NOT NULL,
+    EndEmp CHAR(80) NULL,
+    CidEmp CHAR(20) NULL,
+    Bairro CHAR(20) NULL,
+    Cargo CHAR(20) NULL,
+    Sexo CHAR(2) NULL,
+    Comissao FLOAT NULL,
+    Salario FLOAT NULL,
+    SalarioBruto FLOAT NULL,
+    CodDepto SMALLINT,
+    CodSupervisor SMALLINT,
+    CONSTRAINT PK_EMP PRIMARY KEY(MatEmp)
 );
 
-Create table Dependente(   
-	NomDep char(30),
-    DatNasDep date,
-    MatEmp smallint,
-    Sexo char(2) null,
-	Constraint PK_DEP primary Key (MatEmp, NomDep),
-    constraint FK_EMP foreign key (MatEmp) references Empregado (MatEmp)
+CREATE TABLE Dependente(   
+    NomDep CHAR(30),
+    DatNasDep DATE,
+    MatEmp SMALLINT,
+    Sexo char(2) NULL,
+    CONSTRAINT PK_DEP PRIMARY KEY (MatEmp, NomDep),
+    CONSTRAINT FK_EMP FOREIGN KEY (MatEmp) REFERENCES Empregado (MatEmp)
 );
 
-alter table Empregado add UfEmp char(2) null;
-alter table Empregado drop column UfEmp;
-alter table Dependente drop foreign key FK_EMP;
-alter table Dependente add constraint FK_EMP foreign key (MatEmp) references Empregado (MatEmp);
+ALTER TABLE Empregado ADD UfEmp CHAR(2) NULL;
+ALTER TABLE Empregado DROP COLUMN UfEmp;
+ALTER TABLE Dependente DROP FOREIGN KEY FK_EMP;
+ALTER TABLE Dependente ADD CONSTRAINT FK_EMP FOREIGN KEY (MatEmp) REFERENCES Empregado (MatEmp);
