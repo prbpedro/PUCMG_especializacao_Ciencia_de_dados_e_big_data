@@ -35,3 +35,6 @@ ALTER TABLE Empregado ADD UfEmp CHAR(2) NULL;
 ALTER TABLE Empregado DROP COLUMN UfEmp;
 ALTER TABLE Dependente DROP FOREIGN KEY FK_EMP;
 ALTER TABLE Dependente ADD CONSTRAINT FK_EMP FOREIGN KEY (MatEmp) REFERENCES Empregado (MatEmp);
+
+alter table Empregado drop column Salario;
+alter table Empregado add column Salario FLOAT null;
