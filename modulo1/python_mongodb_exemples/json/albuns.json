@@ -1,0 +1,42 @@
+[
+    {
+        "nome": "The Dark Side Of the Mon",
+        "data": "29/04/1973"
+    },
+    {
+        "nome": "Master of Puppets",
+        "dataLancamento": "03/03/1986",
+        "duracao": 3286
+    },
+    {
+        "nome": "...And Justice For All",
+        "dataLancamento": "25/08/1988",
+        "duracao": 3929
+    },
+    {
+        "nome": "Among the Living",
+        "produtor": "Eddie Krammer"
+    },
+    {
+        "nome": "Nervermind",
+        "artista": "Nirvana",
+        "estudioGravacao": [
+            "Sound City Studios",
+            "Smart Studios (Madison)"
+        ],
+        "dataLancamento": "11/01/1992"
+    },
+    {
+        "nome": "Reign in Blood",
+        "artista": "Larry Carroll",
+        "duracao": 1738,
+        "dataLancamento": "07/10/1986"
+    },
+    {
+        "nome": "Seventh Son of a Seventh Son",
+        "artista": "Iron Maiden",
+        "produtor": "Martin Birch",
+        "dataLancamento": "11/04/1988",
+        "estudioGravacao": "Music D Studios"
+    }
+]
