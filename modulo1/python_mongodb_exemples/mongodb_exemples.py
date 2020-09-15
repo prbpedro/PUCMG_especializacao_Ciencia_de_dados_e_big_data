@@ -49,6 +49,7 @@ if __name__ == "__main__":
 
     db = client.aula_puc
     db.albuns.drop()
+    db.artistas.drop()
 
     for e in json_data:
         for a in e.keys():
@@ -81,10 +82,12 @@ if __name__ == "__main__":
     db.albuns.update({"nome": "Among the Living"},
                      {"$set": {"idartista": 3}})
 
-    db.albuns.update({"nome": "Seventh Son of a Seventh Son"},
-                     {"$set": {"idartista": 3}})
+    with client.start_session() as session:
+        with session.start_transaction():
+            db.albuns.update({"nome": "Seventh Son of a Seventh Son"},
+                             {"$set": {"idartista": 3}})
 
-    db.albuns.update({"nome": "Reign in Blood"},
-                     {"$set": {"idartista": 4}})
+            db.albuns.update({"nome": "Reign in Blood"},
+                             {"$set": {"idartista": 4}})
 
     execute_queries(db)
