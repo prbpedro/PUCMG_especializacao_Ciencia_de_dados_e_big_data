@@ -16,3 +16,6 @@ Para alterar o banco de dados padrão do neo4j (somente 1 por instãncia no comm
 		dbms.default_database=pospucmod1
 
 Para fazer import de arquivos CSV colocar arquivos em /var/lib/neo4j/import
+
+Para informações sobre como conectar com o neo4j
+	 curl -i --user neo4j:neo4j http://localhost:7474
