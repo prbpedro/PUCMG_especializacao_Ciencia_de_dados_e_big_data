@@ -1,0 +1,18 @@
+O neo4j executa com a JVM do Java 11 para tanto é necessário que a mesma esteja instalada e configurada como a padrão:
+	sudo update-alternatives --config java
+
+Para atualizar a senha do usuário "neo4j"
+	sudo rm -f /var/lib/neo4j/data/dbms/auth
+	sudo neo4j-admin set-initial-password "neo4j"
+
+Comandos para gerenciar o serviço do Linux:
+	sudo systemctl status neo4j.service
+	sudo systemctl start neo4j.service
+	sudo systemctl stop neo4j.service
+
+Para alterar o banco de dados padrão do neo4j (somente 1 por instãncia no community edition)
+	Criar pasta dentro de /var/lib/neo4j/databases com grupo e usuário igual a neo4j
+	sudo gedit /etc/neo4j/neo4j.conf 
+		dbms.default_database=pospucmod1
+
+Para fazer import de arquivos CSV colocar arquivos em /var/lib/neo4j/import
