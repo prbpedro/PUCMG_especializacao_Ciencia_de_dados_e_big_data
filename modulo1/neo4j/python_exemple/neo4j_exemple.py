@@ -87,3 +87,24 @@ YIELD nodeCount, totalCost
 RETURN nodeCount,totalCost"""
 for r in graphdb.run(dijkstra_match % ("Ana", "Lea")).data():
     print(r["nodeCount"], r["totalCost"])
+
+
+dijkstra_match_nodes = """MATCH (start:Usuario {name: '%s'}), (end:Usuario {name: '%s'})
+CALL gds.alpha.shortestPath.stream({
+  nodeProjection: 'Usuario',
+  relationshipProjection: {
+    follows: {
+      type: 'follows',
+      properties: 'cost',
+      orientation: 'UNDIRECTED'
+    }
+  },
+  startNode: start,
+  endNode: end,
+  relationshipWeightProperty: 'cost'
+})
+YIELD nodeId, cost
+RETURN gds.util.asNode(nodeId).name AS name, cost"""
+for r in graphdb.run(dijkstra_match_nodes % ("Ana", "Lea")).data():
+    print(r["name"], r["cost"], end="->")
+print()
