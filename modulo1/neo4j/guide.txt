@@ -19,3 +19,10 @@ Para fazer import de arquivos CSV colocar arquivos em /var/lib/neo4j/import
 
 Para informações sobre como conectar com o neo4j
 	 curl -i --user neo4j:neo4j http://localhost:7474
+
+Para instalar Neo4j Graph Data Science:
+	Download https://neo4j.com/download-center/#community
+	Extract em /var/lib/neo4j/plugins
+	Configurar em /etc/neo4j/neo4j.conf:
+		dbms.security.procedures.unrestricted=gds.*
+		dbms.security.procedures.whitelist=gds.*
